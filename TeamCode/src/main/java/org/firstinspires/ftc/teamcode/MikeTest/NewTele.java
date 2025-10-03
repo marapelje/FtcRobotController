@@ -1,18 +1,21 @@
-package org.firstinspires.ftc.teamcode;
+package org.firstinspires.ftc.teamcode.MikeTest;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.teamcode.MikeTest.MikeMechanisms.RobotIMU;
+import org.firstinspires.ftc.teamcode.MikeTest.MikeMechanisms.RobotMecanumDrive;
 import org.firstinspires.ftc.teamcode.mechanisms.MecanumDrive;
 
 @TeleOp
-public class MecanumFieldOrientatedOpMode extends OpMode {
-    MecanumDrive drive = new MecanumDrive();
+public class NewTele  extends OpMode {
+    RobotMecanumDrive drive = new RobotMecanumDrive();
     double forward, strafe, rotate;
 
     @Override
     public void init(){
         drive.init(hardwareMap);
+        telemetry.addData("mike","me");
     }
 
     @Override

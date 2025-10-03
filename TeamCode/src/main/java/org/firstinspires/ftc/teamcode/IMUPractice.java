@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.teamcode.mechanisms.TestBenchIMU;
 
-@Disabled
+//@Disabled
 @TeleOp
 public class IMUPractice extends OpMode {
     TestBenchIMU bench = new TestBenchIMU();
@@ -16,6 +16,8 @@ public class IMUPractice extends OpMode {
     @Override
     public void init(){
         bench.init(hardwareMap);
+        //telemetry.addData("Heading", bench.getHeading(AngleUnit.DEGREES));
+        //telemetry.addData("Heading Radians", bench.getHeading(AngleUnit.RADIANS));
     }
 
     @Override
