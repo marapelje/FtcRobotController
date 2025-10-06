@@ -9,7 +9,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.YawPitchRollAngles;
 
 public class RobotIMU {
     private IMU imu;
-    private static double initHeading;
+    //private static double initHeading;
     private YawPitchRollAngles orientation;
     private double finalYaw;
 
@@ -22,11 +22,7 @@ public class RobotIMU {
         );
 
         imu.initialize(new IMU.Parameters(RevOrientation));
-        initHeading = imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.RADIANS);
-    }
-
-    public double getStartingHeading(){
-        return initHeading;
+        //initHeading = imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.RADIANS);
     }
 
 

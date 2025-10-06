@@ -8,12 +8,14 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.IMU;
 
+import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 
 @TeleOp
 public class RobotMecanumDrive {
     private DcMotorEx driveMotorLF, driveMotorLB, driveMotorRF, driveMotorRB;
     IMU imu;
+    Telemetry telemetry;
 
     public void init(HardwareMap hwMap) {
         driveMotorLF = hwMap.get(DcMotorEx.class, "LeftFront");
@@ -41,6 +43,8 @@ public class RobotMecanumDrive {
         double maxPower = 1.0;
         double maxSpeed = 1.0;
 
+
+
         maxPower = Math.max(maxPower, Math.abs(lFPower));
         maxPower = Math.max(maxPower, Math.abs(lBPower));
         maxPower = Math.max(maxPower, Math.abs(rFPower));
@@ -58,9 +62,12 @@ public class RobotMecanumDrive {
         double r = Math.hypot(strafe, forward);
 
         theta = AngleUnit.normalizeRadians(theta - imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.RADIANS));
+
+        //telemetry.addData("theta", theta);
         double newForward = r * Math.sin(theta);
         double newStrafe = r * Math.cos(theta);
 
         this.drive(newForward, newStrafe, rotate);
+
     }
 }
